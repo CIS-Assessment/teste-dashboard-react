@@ -1,103 +1,46 @@
-# Projeto de teste para vaga Frontend
+# Getting Started with Create React App
 
-## Instruções
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Você deverá criar um `fork` deste projeto, e desenvolver em cima do seu fork. 
-Use um documento `*.md` no repositório para informar as decisões tomadas, como você organizou e separou seu código, e principalmente as instruções de como executar seu projeto.
+## Available Scripts
 
-Ao final, o DEV deverá enviar uma PR (`Pull Request`) para ser revisada.
+In the project directory, you can run:
 
-### Projeto
+### `npm start`
 
-Você deverá escrever uma aplicação para gerenciamento de tarefas. É uma aplicação simples, onde será possível listar, cadastrar, editar e excluir tarefas.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Cada tarefa deve conter um rótulo obrigatório, uma descrição opcional e datas de criação/alteração, e por fim um "check" para determinar se a tarefa foi concluída.
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-- [ ] Deve haver uma tela principal com a lista de tarefas
-- [ ] Deve uma forma de adicionar / editar e excluir as tarefas
+### `npm test`
 
-> O desenvolvedor está livre criar e a aproveitar para mostrar suas habilidades.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### Exigênicas
+### `npm run build`
 
-1. O projeto deve utilizar `React`
-2. Deve ser escrito com `typescript`
-3. Os commits podem ser escritos em português, porém deverão seguir o padrão convencional do [commitlint](https://commitlint.js.org/#/)
-4. O projeto deve seguir a estrutura e fluxo de trabalho do [git flow](https://www.atlassian.com/br/git/tutorials/comparing-workflows/gitflow-workflow)
-5. Toda parte de código e nomeação de funções/variáveis devem ser em inglês.
-6. Nomeação de funções/variáveis devem seguir a convenção de [camelCase](https://coodesh.com/blog/dicionario/o-que-e-camelcase/)
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Objetivo do teste
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Os principais pontos a serem considerados nesse teste são:
+### `npm run eject`
 
-- Nível de organização das etapas de desenvolvimento (tomada de decisões em features / ordem dos commits)
-- Facilidade para a reprodução do ambiente por outros DEV's do time
-- Legibilidade e padronização do código.
-- Noções de responsividade
-- Escalabilidade (componentização e organização da estrutura de arquivos do projeto)
-- Capacidade de resolução de problemas
-- Nível de conhecimento do `React`
-- Comunicação
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
----
-## Características desejáveis para o projeto 
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-### 1. Ambiente de desenvolvimento
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-- Pode utilizar [create react-app](https://create-react-app.dev/), [create vite](https://vitejs.dev/), etc.
-- Configurar projeto para rodar com `typescript`
-- Configurar, iniciar e utilizar o projeto com `git flow` (conceitos básicos)
-- Configuração padronização de código `eslint` / `prettier`
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+## Learn More
 
-### 2. Estilização
-Mostre suas habilidades com estilização, organização e escalabilidade de componetes e páginas.
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Fique à vontade para utilizar Bootstrap, MaterialUi, Chakra UI, Tailwind, CSS. *(por aqui utilizamos `styled-components`)*
-
-
-### 3. React Hooks
-Mostre suas habilidades com o fluxo de renderização do `React`. Voce pode trabalhar hooks, contexts, etc.
-
-- Criar hook para troca de informções globais da aplicação
-
-### 4. Redux
-> dica: pode utilizar a lib `@reduxjs/toolkit` para facilitar o processo
-
-- Configurar store do `redux` para aplicação
-- Salvar informações em um estado global do `react-redux`
-
-### 5. Persistindo estados globais
-> dica: aqui utilizamos o `redux-persist`
-
-- Salvar informações de no storage do navegador
-
-### 6. Entrega
-Organização sempre é bem-vinda. Por isso, sinta-se a vontade para registrar a tarefa que está trabalhando, tempo previsto e tempo trabalhado, como no modelo abaixo:
-
-|Tarefa|Previsto|Trabalhado|
-|:--|:--:|:--:|
-|Exemplo de tarefa 1| ~1h | 1h 10m |
-|Mais outro exemplo de tarefa| 2h | 1h 50m |
-
----
-
-## Importante
-
-Você está livre para criar/incrementar à estrutura e abordagem do projeto.
-
-O seu objetivo é mostrar suas habilidades na resolução de problemas em ambiente real, de forma eficiênte, e principalmente, que seja compreendida pelo **time**.
-
-Não é necessário executar todas as [caracteristicas desejáveis](#características-desejáveis-para-o-projeto), faça aquilo que se sentir confortável.
-
-Lembre-se que sua comunicação também está sendo avaliada, portanto, se tiver dúvidas comunique.
-
----
-*Leandro Sbrissa*
-email: leandro@cisassessment.com.br
-whatsapp: *infomre-se sobre meu numero*
-
-
-
+To learn React, check out the [React documentation](https://reactjs.org/).
