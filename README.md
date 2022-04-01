@@ -2,7 +2,7 @@
 
 ## Instruções
 
-Você deverá criar um `fork` deste projeto, e desenvolver em cima do seu fork. 
+Você deverá criar um `fork` deste projeto, e desenvolver em cima do seu fork.
 Use um documento `*.md` no repositório para informar as decisões tomadas, como você organizou e separou seu código, e principalmente as instruções de como executar seu projeto.
 
 Ao final, o DEV deverá enviar uma PR (`Pull Request`) para ser revisada.
@@ -27,7 +27,6 @@ Cada tarefa deve conter um rótulo obrigatório, uma descrição opcional e data
 5. Toda parte de código e nomeação de funções/variáveis devem ser em inglês.
 6. Nomeação de funções/variáveis devem seguir a convenção de [camelCase](https://coodesh.com/blog/dicionario/o-que-e-camelcase/)
 
-
 ### Objetivo do teste
 
 Os principais pontos a serem considerados nesse teste são:
@@ -42,7 +41,8 @@ Os principais pontos a serem considerados nesse teste são:
 - Comunicação
 
 ---
-## Características desejáveis para o projeto 
+
+## Características desejáveis para o projeto
 
 ### 1. Ambiente de desenvolvimento
 
@@ -51,36 +51,39 @@ Os principais pontos a serem considerados nesse teste são:
 - Configurar, iniciar e utilizar o projeto com `git flow` (conceitos básicos)
 - Configuração padronização de código `eslint` / `prettier`
 
-
 ### 2. Estilização
+
 Mostre suas habilidades com estilização, organização e escalabilidade de componetes e páginas.
 
-- Fique à vontade para utilizar Bootstrap, MaterialUi, Chakra UI, Tailwind, CSS. *(por aqui utilizamos `styled-components`)*
-
+- Fique à vontade para utilizar Bootstrap, MaterialUi, Chakra UI, Tailwind, CSS. _(por aqui utilizamos `styled-components`)_
 
 ### 3. React Hooks
+
 Mostre suas habilidades com o fluxo de renderização do `React`. Voce pode trabalhar hooks, contexts, etc.
 
 - Criar hook para troca de informções globais da aplicação
 
 ### 4. Redux
+
 > dica: pode utilizar a lib `@reduxjs/toolkit` para facilitar o processo
 
 - Configurar store do `redux` para aplicação
 - Salvar informações em um estado global do `react-redux`
 
 ### 5. Persistindo estados globais
+
 > dica: aqui utilizamos o `redux-persist`
 
 - Salvar informações de no storage do navegador
 
 ### 6. Entrega
+
 Organização sempre é bem-vinda. Por isso, sinta-se a vontade para registrar a tarefa que está trabalhando, tempo previsto e tempo trabalhado, como no modelo abaixo:
 
-|Tarefa|Previsto|Trabalhado|
-|:--|:--:|:--:|
-|Exemplo de tarefa 1| ~1h | 1h 10m |
-|Mais outro exemplo de tarefa| 2h | 1h 50m |
+| Tarefa                       | Previsto | Trabalhado |
+| :--------------------------- | :------: | :--------: |
+| Exemplo de tarefa 1          |   ~1h    |   1h 10m   |
+| Mais outro exemplo de tarefa |    2h    |   1h 50m   |
 
 ---
 
@@ -95,9 +98,7 @@ Não é necessário executar todas as [caracteristicas desejáveis](#caracterís
 Lembre-se que sua comunicação também está sendo avaliada, portanto, se tiver dúvidas comunique.
 
 ---
-*Leandro Sbrissa*
+
+_Leandro Sbrissa_
 email: leandro@cisassessment.com.br
-whatsapp: *infomre-se sobre meu numero*
-
-
-
+whatsapp: _infomre-se sobre meu numero_
