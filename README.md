@@ -80,10 +80,10 @@ Mostre suas habilidades com o fluxo de renderização do `React`. Voce pode trab
 
 Organização sempre é bem-vinda. Por isso, sinta-se a vontade para registrar a tarefa que está trabalhando, tempo previsto e tempo trabalhado, como no modelo abaixo:
 
-| Tarefa                       | Previsto | Trabalhado |
-| :--------------------------- | :------: | :--------: |
-| Exemplo de tarefa 1          |   ~1h    |   1h 10m   |
-| Mais outro exemplo de tarefa |    2h    |   1h 50m   |
+| Tarefa                         | Previsto | Trabalhado |
+| :----------------------------- | :------: | :--------: |
+| Título e data no Header        |   15m    |    20m     |
+| ReactDOM.Render p/ create.root |   10m    |     5m     |
 
 ---
 
