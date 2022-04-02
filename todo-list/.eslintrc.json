@@ -5,7 +5,6 @@
   },
   "extends": [
     "plugin:react/recommended",
-    "standart",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended"
   ],
@@ -23,8 +22,13 @@
     "react/react-in-jsx-scope": "off",
     "space-before-function-paren": "off",
     "no-console": "warn",
-    "comma-dangle": ["error", "always-multiline"],
-    "jsx-quotes": ["error", "prefer-double"]
+    "jsx-quotes": ["error", "prefer-double"],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
   },
   "settings": {
     "import/resolver": {
