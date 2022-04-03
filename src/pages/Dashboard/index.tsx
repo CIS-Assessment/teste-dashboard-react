@@ -45,6 +45,7 @@ function Dashboard() {
   };
   const dataSource = [
     {
+      key: '1',
       label: 'Criação do Projeto Dashboard',
       description:
         'Criar o projeto Dashboard para entregar ao Leandro até Segunda-feira',
@@ -53,6 +54,7 @@ function Dashboard() {
       checked: true,
     },
     {
+      key: '2',
       label: 'Label teste2',
       description: 'Descrição teste2',
       createDate: new Date().toLocaleDateString('pt-BR'),

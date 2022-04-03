@@ -4,6 +4,7 @@ import {
   UserDeleteOutlined,
   CheckOutlined,
 } from '@ant-design/icons';
+import { Popconfirm } from 'antd';
 import { ButtonComponent } from '../Button';
 import { ActionButtonContainer } from './styles';
 
@@ -19,9 +20,8 @@ export function ActionButtons({
   data,
 }: ActionButtonsProps) {
   return (
-    <ActionButtonContainer>
+    <ActionButtonContainer key={rowId}>
       <ButtonComponent
-        key={rowId}
         type="dashed"
         name="Finalizar"
         disabled={data.checked}
@@ -30,20 +30,24 @@ export function ActionButtons({
       />
 
       <ButtonComponent
-        key={rowId}
         type="dashed"
         name="Editar"
         icon={<UserSwitchOutlined />}
         onClick={handleEditModal}
       />
-      <ButtonComponent
-        key={rowId}
-        danger
-        type="primary"
-        name="Excluir"
-        icon={<UserDeleteOutlined />}
-        /* onClick={() => handleEdit(row.id)} */
-      />
+      <Popconfirm
+        title="Deseja Remover?"
+        onConfirm={() => console.log(`Deletou o item ${rowId}`)}
+        okText="Sim"
+        cancelText="Cancelar"
+      >
+        <ButtonComponent
+          danger
+          type="primary"
+          name="Excluir"
+          icon={<UserDeleteOutlined />}
+        />
+      </Popconfirm>
     </ActionButtonContainer>
   );
 }
