@@ -84,6 +84,7 @@ Organização sempre é bem-vinda. Por isso, sinta-se a vontade para registrar a
 | :----------------------------- | :------: | :--------: |
 | Título e data no Header        |   15m    |    20m     |
 | ReactDOM.Render p/ create.root |   10m    |     5m     |
+| Add, checar e exlcuir task     |   30m    |    40m     |
 
 ---
 
