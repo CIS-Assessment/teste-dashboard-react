@@ -27,17 +27,17 @@
         "prettier/prettier": [
             "error",
             {
-              "endOfLine": "auto"
-            },
-          ],
+                "endOfLine": "auto"
+            }
+        ],
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
         "react/jsx-filename-extension": [
             1,
             {
-            "extensions": [
-                ".tsx"
-            ]
+                "extensions": [
+                    ".tsx"
+                ]
             }
         ],
         "no-use-before-define": "off",
@@ -49,14 +49,14 @@
             "error",
             "ignorePackages",
             {
-              "ts": "never",
-              "tsx": "never"
+                "ts": "never",
+                "tsx": "never"
             }
-         ]
+        ]
     },
     "settings": {
         "import/resolver": {
-          "typescript": {}
+            "typescript": {}
         }
-      }
+    }
 }

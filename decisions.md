@@ -5,3 +5,4 @@
 # Git Flow não é o formato usualmente utilizado por mim , então tive que estudar o funcionamento antes da implementação do ambiente . Já que as branchs serão geradas pelo padrão git flow.
 # Já utilizo prettier e eslint nos projetos pessoais da Rocket e no meu trabalho , portanto não foi difícil adaptar nesse projeto.  
 
+# Utilizei tabela para listagem de dados , pois já utilizo no dia-a-dia e consigo entregar a funcionalidade com maior agilidade.
