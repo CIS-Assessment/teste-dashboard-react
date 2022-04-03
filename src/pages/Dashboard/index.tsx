@@ -8,14 +8,13 @@
 import React from 'react';
 import {
   CheckCircleOutlined,
-  UserSwitchOutlined,
-  UserDeleteOutlined,
   LeftCircleOutlined,
   RightCircleOutlined,
 } from '@ant-design/icons';
 import { TablePaginationConfig } from 'antd';
 import dashboardIcon from '../../assets/icon-dashboard.jpg';
-
+import { ButtonComponent } from '../../components/Button';
+import { ModalComponent } from '../../components/ModalComponent';
 import {
   Container,
   Header,
@@ -27,8 +26,23 @@ import {
   StyledTag,
   Footer,
 } from './styles';
+import { ActionButtons } from '../../components/ActionButtons';
 
 function Dashboard() {
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [mode, setMode] = React.useState<'isEdit' | 'isNew'>('isEdit');
+
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
+  const handleEditModal = () => {
+    setModalOpen(true);
+    setMode('isEdit');
+  };
+  const handleNewModal = () => {
+    setModalOpen(true);
+    setMode('isNew');
+  };
   const dataSource = [
     {
       label: 'Criação do Projeto Dashboard',
@@ -74,24 +88,22 @@ function Dashboard() {
       align: 'center' as const,
       render: (status: boolean) =>
         status ? (
-          <StyledTag color="success">Feito</StyledTag>
+          <StyledTag color="success">Sim</StyledTag>
         ) : (
-          <StyledTag color="processing">Pendente</StyledTag>
+          <StyledTag color="error">Não</StyledTag>
         ),
     },
     {
       title: 'Ações',
       align: 'center' as const,
-      render: () => {
+      width: '10%',
+      render: (data: any, _: any, index: number) => {
         return (
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <button type="button">
-              <UserSwitchOutlined />
-            </button>
-            <button type="button">
-              <UserDeleteOutlined />
-            </button>
-          </div>
+          <ActionButtons
+            handleEditModal={handleEditModal}
+            rowId={index}
+            data={data}
+          />
         );
       },
     },
@@ -110,6 +122,11 @@ function Dashboard() {
   };
   return (
     <Container>
+      <ModalComponent
+        mode={mode}
+        isOpen={modalOpen}
+        onRequestClose={() => handleCloseModal()}
+      />
       <Header>
         <span>Dashboard</span>
         <StyledImage src={dashboardIcon} preview={false} />
@@ -118,10 +135,12 @@ function Dashboard() {
       <Content>
         <ContentHeader>
           <ContentTitle>Aqui estão suas tarefas :</ContentTitle>
-          <button type="button">
-            <CheckCircleOutlined />
-            Adicionar Tarefa
-          </button>
+          <ButtonComponent
+            name="Adicionar Tarefa"
+            icon={<CheckCircleOutlined />}
+            type="primary"
+            onClick={handleNewModal}
+          />
         </ContentHeader>
         <StyledTable
           columns={columns}

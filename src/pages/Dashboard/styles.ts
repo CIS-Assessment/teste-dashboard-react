@@ -1,12 +1,5 @@
 import styled from 'styled-components';
-import {
-  Table as TableAntd,
-  Image,
-  Tag,
-  /*  Popconfirm,
-  notification,
-  TablePaginationConfig, */
-} from 'antd';
+import { Table as TableAntd, Image, Tag } from 'antd';
 
 export const Container = styled.div`
   height: 100vh;
