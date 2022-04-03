@@ -1,5 +1,13 @@
+import Dashboard from './pages/Dashboard';
+import Global from './styles/global';
+
 function App() {
-  return <h1>React App</h1>;
+  return (
+    <>
+      <Dashboard />
+      <Global />
+    </>
+  );
 }
 
 export default App;
