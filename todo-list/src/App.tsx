@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Content />
+      <Content id={0} title={""} isCompleted={false} />
     </div>
   );
 }
