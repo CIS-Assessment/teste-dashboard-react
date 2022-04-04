@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useChecked } from "../App";
 
 interface Task {
   id: number;
@@ -9,6 +10,7 @@ interface Task {
 export function Content(props: Task) {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState("");
+  const { checked, setChecked }: any = useChecked();
 
   function handleCreateNewTask() {
     if (!newTaskTitle) return;
@@ -29,14 +31,15 @@ export function Content(props: Task) {
           }
         : task
     );
-
     setTasks(newTasks);
+    setChecked(checked + 1);
   }
 
   function handleRemoveTask(id: number) {
     const filtered = tasks.filter((task) => task.id != id);
     setTasks(filtered);
   }
+
   return (
     <section className="task-list content">
       <header>
@@ -74,16 +77,17 @@ export function Content(props: Task) {
                   />
                   <span className="checkmark"></span>
                 </label>
-                <p>{task.title}</p>
+                <p key={task.id}>{task.title}</p>
               </div>
-
               <button
                 type="button"
                 data-testid="remove-task-button"
                 onClick={() =>
                   task.isCompleted ? handleRemoveTask(task.id) : null
                 }
-              ></button>
+              >
+                Remover
+              </button>
             </li>
           ))}
         </ul>
