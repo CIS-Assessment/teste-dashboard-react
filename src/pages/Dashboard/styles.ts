@@ -74,6 +74,7 @@ export const StyledTable = styled(TableAntd) <DarkThemeProps>`
     props.myTheme === 'light' ? 'black' : 'white'};
       background:${props =>
     props.myTheme === 'light' ? 'white' : 'black'};
+    
     }
     .ant-table-thead > tr > th {
       background: ${props =>
@@ -84,7 +85,13 @@ export const StyledTable = styled(TableAntd) <DarkThemeProps>`
     .ant-table-tbody:hover .ant-table-cell {
     background: transparent;
   }
-  } 
+  
+  .ant-table-empty .ant-table-tbody > tr.ant-table-placeholder {
+    color: ${props =>
+    props.myTheme === 'light' ? 'rgba(0, 0, 0, 0.25)' : 'white'};
+    }
+  }
+   
 `;
 
 export const StyledTag = styled(Tag)``;
