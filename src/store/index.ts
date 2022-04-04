@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { createStore } from 'redux';
 import rootReducer from './modules/rootReducer';
-import { ITaskState } from './modules/task/types';
+import { ITaskItem } from './modules/task/types';
 
 export interface IState {
-    tasks: ITaskState;
+    tasks: ITaskItem[];
 }
 const store = createStore(rootReducer);
 
