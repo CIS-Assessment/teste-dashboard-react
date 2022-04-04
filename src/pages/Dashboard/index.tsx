@@ -13,6 +13,7 @@ import {
 } from '@ant-design/icons';
 import { TablePaginationConfig } from 'antd';
 import dashboardIcon from '../../assets/icon-dashboard.jpg';
+import nightMode from '../../assets/dark-mode.png';
 import { ButtonComponent } from '../../components/Button';
 import { ModalComponent } from '../../components/ModalComponent';
 import {
@@ -27,11 +28,12 @@ import {
   Footer,
 } from './styles';
 import { ActionButtons } from '../../components/ActionButtons';
+import { useTheme } from '../../hooks/useTheme';
 
 function Dashboard() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [mode, setMode] = React.useState<'isEdit' | 'isNew'>('isEdit');
-
+  const { toogleTheme, theme } = useTheme();
   const handleCloseModal = () => {
     setModalOpen(false);
   };
@@ -112,7 +114,7 @@ function Dashboard() {
   ];
 
   const styleConfig: React.CSSProperties = {
-    color: 'dodgerblue',
+    color: theme === 'light' ? 'dodgerblue' : '#FFF',
     fontSize: '1.2rem',
   };
   const paginationConfig: TablePaginationConfig = {
@@ -123,37 +125,46 @@ function Dashboard() {
     responsive: true,
   };
   return (
-    <Container>
+    <Container myTheme={theme}>
       <ModalComponent
         mode={mode}
         isOpen={modalOpen}
         onRequestClose={() => handleCloseModal()}
       />
-      <Header>
+      <Header myTheme={theme}>
         <span>Dashboard</span>
         <StyledImage src={dashboardIcon} preview={false} />
-        <span>Gestão de atividades</span>
+        <StyledImage
+          cursorOn
+          src={nightMode}
+          preview={false}
+          onClick={toogleTheme}
+        />
+        {/* <ButtonComponent name="Dark Mode" onClick={toogleTheme} /> */}
       </Header>
       <Content>
-        <ContentHeader>
+        <ContentHeader myTheme={theme}>
           <ContentTitle>Aqui estão suas tarefas :</ContentTitle>
           <ButtonComponent
             name="Adicionar Tarefa"
             icon={<CheckCircleOutlined />}
-            type="primary"
+            type={theme === 'light' ? 'primary' : 'dashed'}
             onClick={handleNewModal}
           />
         </ContentHeader>
         <StyledTable
           columns={columns}
-          bordered
+          bordered={theme === 'light'}
+          myTheme={theme}
           tableLayout="auto"
           dataSource={dataSource}
           pagination={paginationConfig}
           locale={{ emptyText: 'No User Found' }}
         />
       </Content>
-      <Footer>© Copyright {new Date().getFullYear()} Dashboard</Footer>
+      <Footer myTheme={theme}>
+        © Copyright {new Date().getFullYear()} Dashboard
+      </Footer>
     </Container>
   );
 }

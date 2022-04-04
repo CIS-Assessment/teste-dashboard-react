@@ -7,6 +7,7 @@ import {
 import { Popconfirm } from 'antd';
 import { ButtonComponent } from '../Button';
 import { ActionButtonContainer } from './styles';
+import { useTheme } from '../../hooks/useTheme';
 
 interface ActionButtonsProps {
   rowId: number;
@@ -19,6 +20,7 @@ export function ActionButtons({
   rowId,
   data,
 }: ActionButtonsProps) {
+  const { theme } = useTheme();
   return (
     <ActionButtonContainer key={rowId}>
       <ButtonComponent
@@ -43,7 +45,7 @@ export function ActionButtons({
       >
         <ButtonComponent
           danger
-          type="primary"
+          type={theme === 'light' ? 'primary' : 'dashed'}
           name="Excluir"
           icon={<UserDeleteOutlined />}
         />

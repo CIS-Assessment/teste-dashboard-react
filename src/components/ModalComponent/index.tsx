@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import { CloseSquareFilled } from '@ant-design/icons';
 import { FormContainer, StyledButton, StyledInput } from './styles';
 import { requiredRule } from '../../utils/rules';
+import { useTheme } from '../../hooks/useTheme';
 
 interface NewModalProps {
   isOpen: boolean;
@@ -21,7 +22,7 @@ export function ModalComponent({
 }: NewModalProps) {
   const [form] = FormContainer.useForm();
   const { Item } = FormContainer;
-
+  const { theme } = useTheme();
   const { TextArea } = StyledInput;
   return (
     <Modal
@@ -35,14 +36,10 @@ export function ModalComponent({
         <CloseSquareFilled />
       </button>
 
-      <FormContainer form={form} layout="vertical">
+      <FormContainer form={form} layout="vertical" myTheme={theme}>
         <h1>{mode === 'isNew' ? 'Cadastrar' : 'Editar'} Atividade</h1>
         <Item name="label" rules={[requiredRule]} label="Nome da Atividade">
-          <StyledInput
-            placeholder="Digite o nome da atividade"
-            /* className={styles.inputContainer} */
-            type="text"
-          />
+          <StyledInput placeholder="Digite o nome da atividade" type="text" />
         </Item>
         <Item name="description" label="Descrição">
           <TextArea
