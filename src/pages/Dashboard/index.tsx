@@ -12,6 +12,7 @@ import {
   RightCircleOutlined,
 } from '@ant-design/icons';
 import { TablePaginationConfig } from 'antd';
+import { useSelector } from 'react-redux';
 import dashboardIcon from '../../assets/icon-dashboard.jpg';
 import nightMode from '../../assets/dark-mode.png';
 import { ButtonComponent } from '../../components/Button';
@@ -29,41 +30,26 @@ import {
 } from './styles';
 import { ActionButtons } from '../../components/ActionButtons';
 import { useTheme } from '../../hooks/useTheme';
+import { IState, ITaskItem } from '../../types';
 
 function Dashboard() {
+  const [taskData, setTaskData] = React.useState<ITaskItem>({} as ITaskItem);
   const [modalOpen, setModalOpen] = React.useState(false);
   const [mode, setMode] = React.useState<'isEdit' | 'isNew'>('isEdit');
   const { toogleTheme, theme } = useTheme();
   const handleCloseModal = () => {
     setModalOpen(false);
   };
-  const handleEditModal = () => {
+  const handleEditModal = (data: ITaskItem) => {
     setModalOpen(true);
+    setTaskData(data);
     setMode('isEdit');
   };
   const handleNewModal = () => {
     setModalOpen(true);
     setMode('isNew');
   };
-  const dataSource = [
-    {
-      key: '1',
-      label: 'Criação do Projeto Dashboard',
-      description:
-        'Criar o projeto Dashboard para entregar ao Leandro até Segunda-feira',
-      createDate: new Date().toLocaleDateString('pt-BR'),
-      changeDate: '-',
-      checked: true,
-    },
-    {
-      key: '2',
-      label: 'Label teste2',
-      description: 'Descrição teste2',
-      createDate: new Date().toLocaleDateString('pt-BR'),
-      changeDate: new Date().toLocaleDateString('pt-BR'),
-      checked: false,
-    },
-  ];
+  const tasks = useSelector<IState, ITaskItem[]>(state => state.tasks);
 
   const columns = [
     {
@@ -85,6 +71,7 @@ function Dashboard() {
       title: 'Data de Alteração',
       dataIndex: 'changeDate',
       align: 'center' as const,
+      render: (changedDate: string) => changedDate ?? '-',
     },
     {
       title: 'Concluída',
@@ -101,11 +88,10 @@ function Dashboard() {
       title: 'Ações',
       align: 'center' as const,
       width: '10%',
-      render: (data: any, _: any, index: number) => {
+      render: (data: ITaskItem) => {
         return (
           <ActionButtons
-            handleEditModal={handleEditModal}
-            rowId={index}
+            handleEditModal={() => handleEditModal(data)}
             data={data}
           />
         );
@@ -124,11 +110,13 @@ function Dashboard() {
     position: ['bottomCenter'],
     responsive: true,
   };
+
   return (
     <Container myTheme={theme}>
       <ModalComponent
         mode={mode}
         isOpen={modalOpen}
+        task={taskData}
         onRequestClose={() => handleCloseModal()}
       />
       <Header myTheme={theme}>
@@ -157,9 +145,9 @@ function Dashboard() {
           bordered={theme === 'light'}
           myTheme={theme}
           tableLayout="auto"
-          dataSource={dataSource}
+          dataSource={tasks}
           pagination={paginationConfig}
-          locale={{ emptyText: 'No User Found' }}
+          locale={{ emptyText: 'Nenhuma tarefa encontrada' }}
         />
       </Content>
       <Footer myTheme={theme}>
