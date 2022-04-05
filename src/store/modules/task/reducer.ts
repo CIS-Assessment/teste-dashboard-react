@@ -18,7 +18,7 @@ const tasks: Reducer<ITaskItem[]> = (state = INITIAL_STATE, action: any) => {
                 ...state,
                 {
                     ...task,
-                    key: state.length + 1,
+                    key: (state[state.length - 1]?.key || 0) + 1,
                     createDate: new Date().toLocaleDateString('pt-BR'),
                     checked: false,
                 }

@@ -15,7 +15,7 @@ export function ButtonComponent({ icon, name, ...rest }: Props) {
   const screen = useBreakpoint();
   const { md } = screen;
   return (
-    <Button md={md} {...rest}>
+    <Button {...rest}>
       {icon && icon}
       <span>{md && name}</span>
     </Button>

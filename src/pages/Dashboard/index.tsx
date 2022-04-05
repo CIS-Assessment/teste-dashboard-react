@@ -31,6 +31,9 @@ function Dashboard() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [mode, setMode] = React.useState<'isEdit' | 'isNew'>('isEdit');
   const { toogleTheme, theme } = useTheme();
+
+  const tasks = useSelector<IState, ITaskItem[]>(state => state.tasks);
+
   const handleCloseModal = () => {
     setModalOpen(false);
   };
@@ -43,7 +46,6 @@ function Dashboard() {
     setModalOpen(true);
     setMode('isNew');
   };
-  const tasks = useSelector<IState, ITaskItem[]>(state => state.tasks);
 
   const columns = [
     {
@@ -106,8 +108,10 @@ function Dashboard() {
     nextIcon: <RightCircleOutlined style={styleConfig} />,
     position: ['bottomCenter'],
     responsive: true,
+    showTotal: (total, range) => {
+      return `Exibindo ${range[0]}-${range[1]} de ${total} registros`;
+    },
   };
-
   return (
     <>
       <Container myTheme={theme}>
