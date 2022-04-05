@@ -6,3 +6,7 @@
 # Já utilizo prettier e eslint nos projetos pessoais da Rocket e no meu trabalho , portanto não foi difícil adaptar nesse projeto.  
 
 # Utilizei tabela para listagem de dados , pois já utilizo no dia-a-dia e consigo entregar a funcionalidade com maior agilidade.
+
+# Para utilização do contexto global , usei a context API para troca de tema e o redux para manipulação das tarefas. 
+
+# Apliquei dois storages , para guardar o estado global das tarefas e para armazenar o tema escolhido.
