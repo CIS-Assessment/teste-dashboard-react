@@ -80,11 +80,14 @@ Mostre suas habilidades com o fluxo de renderização do `React`. Voce pode trab
 
 Organização sempre é bem-vinda. Por isso, sinta-se a vontade para registrar a tarefa que está trabalhando, tempo previsto e tempo trabalhado, como no modelo abaixo:
 
-| Tarefa                         | Previsto | Trabalhado |
-| :----------------------------- | :------: | :--------: |
-| Título e data no Header        |   15m    |    20m     |
-| ReactDOM.Render p/ create.root |   10m    |     5m     |
-| Add, checar e exlcuir task     |   30m    |    40m     |
+| Tarefa                                                         | Previsto | Trabalhado |
+| :------------------------------------------------------------- | :------: | :--------: |
+| Título e data no Header                                        |   15m    |    20m     |
+| ReactDOM.Render p/ create.root                                 |   10m    |     5m     |
+| Add, checar e exlcuir task                                     |   30m    |    40m     |
+| ContextAPI hook p/dados entre component                        |   15m    |    15m     |
+| Configuração Redux, Redux-Persist (Redux-persist em andamento) |    2h    |     6h     |
+| ContextAPI hook fix de error ao trocar valores                 |   20m    |    10m     |
 
 ---
 
