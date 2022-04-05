@@ -75,6 +75,8 @@ function Dashboard() {
     {
       title: 'Concluída',
       dataIndex: 'checked',
+      defaultSortOrder: 'ascend' as any,
+      sorter: (a: any, b: any) => a.checked - b.checked,
       align: 'center' as const,
       render: (status: boolean) =>
         status ? (
