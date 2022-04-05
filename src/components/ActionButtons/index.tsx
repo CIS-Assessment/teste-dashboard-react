@@ -14,6 +14,7 @@ import {
   deleteTaskFromList,
 } from '../../store/modules/task/actions';
 import { ITaskItem } from '../../types';
+import { getSuccessNotification } from '../Notification';
 
 interface ActionButtonsProps {
   data: ITaskItem;
@@ -27,11 +28,12 @@ export function ActionButtons({ handleEditModal, data }: ActionButtonsProps) {
 
   const handleMarkAsDone = (rowData: any) => {
     dispatch(markAsChecked(rowData));
+    getSuccessNotification('Tarefa Finalizada!', theme);
   };
 
   const handleDeleteTask = (rowKey: number) => {
     dispatch(deleteTaskFromList(rowKey));
-    /* notification */
+    getSuccessNotification('Tarefa Deletada !', theme);
   };
   return (
     <ActionButtonContainer key={data.key}>

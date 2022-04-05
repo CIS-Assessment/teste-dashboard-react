@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import styled from 'styled-components';
-import { Table as TableAntd, Image, Tag } from 'antd';
+import { Table as TableAntd, Image, Tag, Switch } from 'antd';
 
 interface DarkThemeProps {
   myTheme?: 'light' | 'dark';
@@ -30,7 +30,7 @@ export const Header = styled.header<DarkThemeProps>`
   padding: 0 1rem;
   color: ${props =>
     props.myTheme === 'light' ? 'dodgerblue' : '#FFF'};
-  span {
+  & > span {
     font-size: 1.6rem;
     font-weight: 700;
   }
@@ -93,6 +93,10 @@ export const StyledTable = styled(TableAntd) <DarkThemeProps>`
   }
    
 `;
+
+export const StyledSwitch = styled(Switch)`
+  
+`
 
 export const StyledTag = styled(Tag)``;
 

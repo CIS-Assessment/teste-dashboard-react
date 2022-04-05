@@ -7,6 +7,7 @@ import React from 'react';
 import Modal from 'react-modal';
 import { CloseSquareFilled } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
+
 import { FormContainer, StyledButton, StyledInput } from './styles';
 import { requiredRule } from '../../utils/rules';
 import { useTheme } from '../../hooks/useTheme';
@@ -15,6 +16,7 @@ import {
   editTaskToList,
 } from '../../store/modules/task/actions';
 import { ITaskItem } from '../../types';
+import { getSuccessNotification } from '../Notification';
 
 interface NewModalProps {
   isOpen: boolean;
@@ -40,6 +42,7 @@ export function ModalComponent({
     const data = form.getFieldsValue();
     if (mode === 'isNew') {
       dispatch(addTaskToList(data));
+      getSuccessNotification(`Tarefa ${data.label} cadastrada!`, theme);
     } else {
       dispatch(
         editTaskToList({
@@ -48,6 +51,7 @@ export function ModalComponent({
           createDate: task?.createDate,
         }),
       );
+      getSuccessNotification('Tarefa editada!', theme);
     }
 
     // put notification
@@ -58,7 +62,6 @@ export function ModalComponent({
   React.useEffect(() => {
     if (mode === 'isEdit') {
       form.setFieldsValue(task);
-      console.log(task);
     }
   }, [task]);
   return (

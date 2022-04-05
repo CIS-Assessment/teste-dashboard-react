@@ -1,10 +1,3 @@
-/* import {
-  UserDeleteOutlined,
-  UserSwitchOutlined,
-  UserAddOutlined,
-  LeftCircleOutlined,
-  RightCircleOutlined,
-} from '@ant-design/icons'; */
 import React from 'react';
 import {
   CheckCircleOutlined,
@@ -14,12 +7,13 @@ import {
 import { TablePaginationConfig } from 'antd';
 import { useSelector } from 'react-redux';
 import dashboardIcon from '../../assets/icon-dashboard.jpg';
-import nightMode from '../../assets/dark-mode.png';
+/* import nightMode from '../../assets/dark-mode.png'; */
 import { ButtonComponent } from '../../components/Button';
 import { ModalComponent } from '../../components/ModalComponent';
 import {
   Container,
   Header,
+  StyledSwitch,
   StyledImage,
   Content,
   ContentTitle,
@@ -104,7 +98,7 @@ function Dashboard() {
     fontSize: '1.2rem',
   };
   const paginationConfig: TablePaginationConfig = {
-    defaultPageSize: 10,
+    defaultPageSize: 5,
     prevIcon: <LeftCircleOutlined style={styleConfig} />,
     nextIcon: <RightCircleOutlined style={styleConfig} />,
     position: ['bottomCenter'],
@@ -122,13 +116,12 @@ function Dashboard() {
       <Header myTheme={theme}>
         <span>Dashboard</span>
         <StyledImage src={dashboardIcon} preview={false} />
-        <StyledImage
-          cursorOn
-          src={nightMode}
-          preview={false}
-          onClick={toogleTheme}
+
+        <StyledSwitch
+          onChange={toogleTheme}
+          checkedChildren="light"
+          unCheckedChildren="dark"
         />
-        {/* <ButtonComponent name="Dark Mode" onClick={toogleTheme} /> */}
       </Header>
       <Content>
         <ContentHeader myTheme={theme}>
