@@ -90,6 +90,14 @@ export const StyledTable = styled(TableAntd) <DarkThemeProps>`
     color: ${props =>
     props.myTheme === 'light' ? 'rgba(0, 0, 0, 0.25)' : 'white'};
     }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+    .ant-table-thead > tr > th,
+    .ant-table-tbody > tr > td {
+        padding: 12px 8px;
+      }
+    }
   }
    
 `;

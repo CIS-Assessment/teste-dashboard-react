@@ -2,20 +2,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/prefer-default-export */
 import { ReactNode } from 'react';
-import { ButtonProps } from 'antd';
+import { ButtonProps, Grid } from 'antd';
 import { Button } from './styles';
 
 interface Props extends ButtonProps {
   icon?: ReactNode;
   name: string;
-  mt?: string;
 }
 
-export function ButtonComponent({ icon, mt, name, ...rest }: Props) {
+export function ButtonComponent({ icon, name, ...rest }: Props) {
+  const { useBreakpoint } = Grid;
+  const screen = useBreakpoint();
+  const { md } = screen;
   return (
-    <Button margintop={mt} {...rest}>
+    <Button md={md} {...rest}>
       {icon && icon}
-      <span>{name}</span>
+      <span>{md && name}</span>
     </Button>
   );
 }

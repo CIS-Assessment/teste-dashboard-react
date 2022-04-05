@@ -55,17 +55,20 @@ function Dashboard() {
       title: 'Descrição',
       dataIndex: 'description',
       align: 'center' as const,
+      responsive: ['md'] as any,
     },
     {
       title: 'Data de Criação',
       dataIndex: 'createDate',
       align: 'center' as const,
+      responsive: ['xl'] as any,
     },
     {
       title: 'Data de Alteração',
       dataIndex: 'changeDate',
       align: 'center' as const,
       render: (changedDate: string) => changedDate ?? '-',
+      responsive: ['xl'] as any,
     },
     {
       title: 'Concluída',
@@ -106,47 +109,49 @@ function Dashboard() {
   };
 
   return (
-    <Container myTheme={theme}>
-      <ModalComponent
-        mode={mode}
-        isOpen={modalOpen}
-        task={taskData}
-        onRequestClose={() => handleCloseModal()}
-      />
-      <Header myTheme={theme}>
-        <span>Dashboard</span>
-        <StyledImage src={dashboardIcon} preview={false} />
+    <>
+      <Container myTheme={theme}>
+        <ModalComponent
+          mode={mode}
+          isOpen={modalOpen}
+          task={taskData}
+          onRequestClose={() => handleCloseModal()}
+        />
+        <Header myTheme={theme}>
+          <span>Dashboard</span>
+          <StyledImage src={dashboardIcon} preview={false} />
 
-        <StyledSwitch
-          onChange={toogleTheme}
-          checkedChildren="light"
-          unCheckedChildren="dark"
-        />
-      </Header>
-      <Content>
-        <ContentHeader myTheme={theme}>
-          <ContentTitle>Aqui estão suas tarefas :</ContentTitle>
-          <ButtonComponent
-            name="Adicionar Tarefa"
-            icon={<CheckCircleOutlined />}
-            type={theme === 'light' ? 'primary' : 'dashed'}
-            onClick={handleNewModal}
+          <StyledSwitch
+            onChange={toogleTheme}
+            checkedChildren="light"
+            unCheckedChildren="dark"
           />
-        </ContentHeader>
-        <StyledTable
-          columns={columns}
-          bordered={theme === 'light'}
-          myTheme={theme}
-          tableLayout="auto"
-          dataSource={tasks}
-          pagination={paginationConfig}
-          locale={{ emptyText: 'Nenhuma tarefa encontrada' }}
-        />
-      </Content>
+        </Header>
+        <Content>
+          <ContentHeader myTheme={theme}>
+            <ContentTitle>Aqui estão suas tarefas :</ContentTitle>
+            <ButtonComponent
+              name="Adicionar Tarefa"
+              icon={<CheckCircleOutlined />}
+              type={theme === 'light' ? 'primary' : 'dashed'}
+              onClick={handleNewModal}
+            />
+          </ContentHeader>
+          <StyledTable
+            columns={columns}
+            bordered={theme === 'light'}
+            myTheme={theme}
+            tableLayout="auto"
+            dataSource={tasks}
+            pagination={paginationConfig}
+            locale={{ emptyText: 'Nenhuma tarefa encontrada' }}
+          />
+        </Content>
+      </Container>
       <Footer myTheme={theme}>
         © Copyright {new Date().getFullYear()} Dashboard
       </Footer>
-    </Container>
+    </>
   );
 }
 

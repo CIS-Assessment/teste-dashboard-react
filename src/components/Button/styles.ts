@@ -4,16 +4,18 @@ import styled from 'styled-components';
 import { Button as ButtonAntd } from 'antd';
 
 type ButtonProps = {
-  margintop?: string;
+  md?: boolean;
 };
 
 export const Button = styled(ButtonAntd) <ButtonProps>`
-  margin-top: ${props => props.margintop};
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  padding: 4px 4px;
+  
   svg {
     width: 1.2rem;
     height: 1.2rem;
+    
   }
 `;
