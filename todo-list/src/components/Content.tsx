@@ -1,28 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useChecked } from "../App";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../redux/store";
+import { addTask } from "../redux/reducers/todosReducer";
+import { Task } from "components/Task";
 
-interface Task {
-  id: number;
-  title: string;
-  isCompleted: boolean;
-}
-
-export function Content(props: Task) {
+export const Content = (props: Task) => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState("");
+
   const { checked, setChecked }: any = useChecked();
 
-  function handleCreateNewTask() {
+  const todoList = useSelector((state: RootState) => state);
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleCreateNewTask = () => {
     if (!newTaskTitle) return;
+
     const newTask = {
       id: Math.random(),
       title: newTaskTitle,
       isCompleted: false,
     };
-    setTasks((oldState) => [...oldState, newTask]);
+    setTasks((oldstate) => [...oldstate, newTask]);
     setNewTaskTitle("");
-  }
-  function handleToggleTaskCompletion(id: number) {
+    dispatch(addTask(newTask));
+  };
+
+  const handleToggleTaskCompletion = (id: number) => {
     const newTasks = tasks.map((task) =>
       task.id === id
         ? {
@@ -32,13 +37,16 @@ export function Content(props: Task) {
         : task
     );
     setTasks(newTasks);
-    setChecked(checked + 1);
-  }
+  };
 
-  function handleRemoveTask(id: number) {
+  const handleRemoveTask = (id: number) => {
     const filtered = tasks.filter((task) => task.id != id);
     setTasks(filtered);
-  }
+  };
+
+  useEffect(() => {
+    tasks.map((task) => (task.isCompleted ? setChecked(checked + 1) : null));
+  }, [tasks]);
 
   return (
     <section className="task-list content">
@@ -94,6 +102,6 @@ export function Content(props: Task) {
       </main>
     </section>
   );
-}
+};
 
 export default Content;

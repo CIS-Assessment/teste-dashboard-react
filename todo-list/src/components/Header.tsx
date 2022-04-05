@@ -1,6 +1,7 @@
 import React from "react";
 import { useChecked } from "../App";
-export function Header() {
+
+const Header = () => {
   const { checked }: any = useChecked();
 
   const today = new Date();
@@ -9,6 +10,7 @@ export function Header() {
     day: "numeric",
     year: "numeric",
   });
+
   return (
     <header>
       <img src="" alt="" />
@@ -16,11 +18,11 @@ export function Header() {
       <span className="date">{nowDate}</span>
       <br />
       <label className="checkbox-container">
-        <span>Parabéns, você concluiu {checked} de suas atividades</span>
+        <span>Você concluiu {checked} de suas atividades</span>
         <input type="checkbox" readOnly checked={checked} />
       </label>
     </header>
   );
-}
+};
 
 export default Header;
