@@ -44,7 +44,6 @@ export const StyledImage = styled(Image) <ImageProps>`
 `;
 
 export const Content = styled.main`
-  /* background: hsl(0, 0%, 90%); */
   flex: 1;
   padding: 0 1rem;
 `;
@@ -68,7 +67,6 @@ export const ContentTitle = styled.span`
 export const StyledTable = styled(TableAntd) <DarkThemeProps>`
    &&& {
     .ant-table
-     /* .ant-table-cell:hover  */
      {
       color: ${props =>
     props.myTheme === 'light' ? 'black' : 'white'};

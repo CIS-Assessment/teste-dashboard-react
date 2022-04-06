@@ -3,11 +3,8 @@
 import styled from 'styled-components';
 import { Button as ButtonAntd } from 'antd';
 
-type ButtonProps = {
-  md?: boolean;
-};
 
-export const Button = styled(ButtonAntd) <ButtonProps>`
+export const Button = styled(ButtonAntd)`
   display: flex;
   justify-content: center;
   align-items: center;

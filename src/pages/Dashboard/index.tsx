@@ -7,7 +7,6 @@ import {
 import { TablePaginationConfig } from 'antd';
 import { useSelector } from 'react-redux';
 import dashboardIcon from '../../assets/icon-dashboard.jpg';
-/* import nightMode from '../../assets/dark-mode.png'; */
 import { ButtonComponent } from '../../components/Button';
 import { ModalComponent } from '../../components/ModalComponent';
 import {
@@ -31,6 +30,9 @@ function Dashboard() {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [mode, setMode] = React.useState<'isEdit' | 'isNew'>('isEdit');
   const { toogleTheme, theme } = useTheme();
+
+  const tasks = useSelector<IState, ITaskItem[]>(state => state.tasks);
+
   const handleCloseModal = () => {
     setModalOpen(false);
   };
@@ -43,7 +45,6 @@ function Dashboard() {
     setModalOpen(true);
     setMode('isNew');
   };
-  const tasks = useSelector<IState, ITaskItem[]>(state => state.tasks);
 
   const columns = [
     {
@@ -73,6 +74,8 @@ function Dashboard() {
     {
       title: 'Concluída',
       dataIndex: 'checked',
+      defaultSortOrder: 'ascend' as any,
+      sorter: (a: any, b: any) => a.checked - b.checked,
       align: 'center' as const,
       render: (status: boolean) =>
         status ? (
@@ -106,52 +109,52 @@ function Dashboard() {
     nextIcon: <RightCircleOutlined style={styleConfig} />,
     position: ['bottomCenter'],
     responsive: true,
+    showTotal: (total, range) => {
+      return `Exibindo ${range[0]}-${range[1]} de ${total} registros`;
+    },
   };
-
   return (
-    <>
-      <Container myTheme={theme}>
-        <ModalComponent
-          mode={mode}
-          isOpen={modalOpen}
-          task={taskData}
-          onRequestClose={() => handleCloseModal()}
-        />
-        <Header myTheme={theme}>
-          <span>Dashboard</span>
-          <StyledImage src={dashboardIcon} preview={false} />
+    <Container myTheme={theme}>
+      <ModalComponent
+        mode={mode}
+        isOpen={modalOpen}
+        task={taskData}
+        onRequestClose={() => handleCloseModal()}
+      />
+      <Header myTheme={theme}>
+        <span>Dashboard</span>
+        <StyledImage src={dashboardIcon} preview={false} />
 
-          <StyledSwitch
-            onChange={toogleTheme}
-            checkedChildren="light"
-            unCheckedChildren="dark"
+        <StyledSwitch
+          onChange={toogleTheme}
+          checkedChildren="light"
+          unCheckedChildren="dark"
+        />
+      </Header>
+      <Content>
+        <ContentHeader myTheme={theme}>
+          <ContentTitle>Aqui estão suas tarefas :</ContentTitle>
+          <ButtonComponent
+            name="Adicionar Tarefa"
+            icon={<CheckCircleOutlined />}
+            type={theme === 'light' ? 'primary' : 'dashed'}
+            onClick={handleNewModal}
           />
-        </Header>
-        <Content>
-          <ContentHeader myTheme={theme}>
-            <ContentTitle>Aqui estão suas tarefas :</ContentTitle>
-            <ButtonComponent
-              name="Adicionar Tarefa"
-              icon={<CheckCircleOutlined />}
-              type={theme === 'light' ? 'primary' : 'dashed'}
-              onClick={handleNewModal}
-            />
-          </ContentHeader>
-          <StyledTable
-            columns={columns}
-            bordered={theme === 'light'}
-            myTheme={theme}
-            tableLayout="auto"
-            dataSource={tasks}
-            pagination={paginationConfig}
-            locale={{ emptyText: 'Nenhuma tarefa encontrada' }}
-          />
-        </Content>
-      </Container>
+        </ContentHeader>
+        <StyledTable
+          columns={columns}
+          bordered={theme === 'light'}
+          myTheme={theme}
+          tableLayout="auto"
+          dataSource={tasks}
+          pagination={paginationConfig}
+          locale={{ emptyText: 'Nenhuma tarefa encontrada' }}
+        />
+      </Content>
       <Footer myTheme={theme}>
         © Copyright {new Date().getFullYear()} Dashboard
       </Footer>
-    </>
+    </Container>
   );
 }
 

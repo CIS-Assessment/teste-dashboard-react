@@ -26,7 +26,7 @@ export function ActionButtons({ handleEditModal, data }: ActionButtonsProps) {
 
   const { theme } = useTheme();
 
-  const handleMarkAsDone = (rowData: any) => {
+  const handleMarkAsDone = (rowData: ITaskItem) => {
     dispatch(markAsChecked(rowData));
     getSuccessNotification('Tarefa Finalizada!', theme);
   };

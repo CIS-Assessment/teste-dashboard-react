@@ -54,8 +54,6 @@ export function ModalComponent({
       getSuccessNotification('Tarefa editada!', theme);
     }
 
-    // put notification
-
     onRequestClose();
   };
 
