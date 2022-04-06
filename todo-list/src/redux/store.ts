@@ -6,6 +6,7 @@ import todosReducer from "./reducers/todosReducer";
 const persistConfig = {
   key: "root",
   storage,
+  whitelist: ["todo"],
 };
 
 const persistedReducer = persistReducer(persistConfig, todosReducer);
