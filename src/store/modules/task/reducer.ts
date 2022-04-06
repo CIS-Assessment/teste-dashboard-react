@@ -4,7 +4,6 @@
 import { Reducer } from "redux";
 import { ITaskItem } from "../../../types";
 
-/* Localstorage must initialize INITIAL_STATE */
 const INITIAL_STATE: ITaskItem[] = []
 
 const tasks: Reducer<ITaskItem[]> = (state = INITIAL_STATE, action: any) => {
@@ -28,7 +27,8 @@ const tasks: Reducer<ITaskItem[]> = (state = INITIAL_STATE, action: any) => {
             const { task } = action.payload
             const changedUser = {
                 ...task,
-                changeDate: new Date().toLocaleString('pt-BR')
+                changeDate: new Date().toLocaleString('pt-BR'),
+                checked: false,
             }
 
             const newList = state.map(item => item.key === task.key ? changedUser : item)

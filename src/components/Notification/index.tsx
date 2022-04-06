@@ -7,7 +7,7 @@ export const getSuccessNotification = (
   description: React.ReactNode,
   theme: 'light' | 'dark',
 ) => {
-  const darkStyle = {
+  const darkStyle: React.CSSProperties = {
     background: '#03DAC6',
     color: '#FFF',
   };

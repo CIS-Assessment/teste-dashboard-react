@@ -10,3 +10,8 @@
 # Para utilização do contexto global , usei a context API para troca de tema e o redux para manipulação das tarefas. 
 
 # Apliquei dois storages , para guardar o estado global das tarefas e para armazenar o tema escolhido.
+
+# A funcionalidade notificações foi acrescentada para notificar o usuário sobre suas ações . Entregando uma melhor experiência ao usuário. Aproveitei ao máximo a biblioteca Ant Design para não comprometer o design do site e não trazer maior verbosidade no código.
+
+
+
