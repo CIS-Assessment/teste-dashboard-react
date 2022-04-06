@@ -21,7 +21,7 @@ const Header = () => {
         <span className="date">{nowDate}</span>
         <br />
         <label className="checkbox-container">
-          <span>Você concluiu {checked} de suas atividades</span>
+          <span>Você tem {checked} atividades</span>
         </label>
       </Box>
     </TitleArea>
