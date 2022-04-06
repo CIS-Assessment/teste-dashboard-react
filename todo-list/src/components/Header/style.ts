@@ -11,9 +11,4 @@ export const TitleArea = styled.div`
   .header {
     margin-left: 1em;  
   }
-  h1 {
-  }
-  .date {
-  }
- 
 `;
