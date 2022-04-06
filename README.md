@@ -88,6 +88,8 @@ Organização sempre é bem-vinda. Por isso, sinta-se a vontade para registrar a
 | ContextAPI hook p/dados entre component                        |   15m    |    15m     |
 | Configuração Redux, Redux-Persist (Redux-persist em andamento) |    2h    |     6h     |
 | ContextAPI hook fix de error ao trocar valores                 |   20m    |    10m     |
+| Styled components e materialUI para ícones                     |    2h    |   2h:30m   |
+| Configuração Redux store e Utilização do Redux-persist         |    2h    |     4h     |
 
 ---
 
