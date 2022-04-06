@@ -15,6 +15,9 @@
 
 ## Organização e Separação do código
 
+# Organização feita por pastas , onde adiciono o componente React e o seu estilo específico.
+# Estilizações globais , onde vários componentes reaproveitam estilos, tipagens e contextos , foram adicionadas na raiz do projeto `/src`
+
 ## Instruções para executar o projeto
 
 1. Clone o repositório
