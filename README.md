@@ -105,6 +105,12 @@ Lembre-se que sua comunicação também está sendo avaliada, portanto, se tiver
 
 ---
 
-_Leandro Sbrissa_
-email: leandro@cisassessment.com.br
-whatsapp: _infomre-se sobre meu numero_
+## Instrução para acessar o projeto
+
+Realize o git clone do repositório
+
+Acesse o diretório /todo-list pelo bash ou outro terminal de preferência
+
+No diretório /todo-list rode o comando npm install
+
+Após a instalação concluída rode o comando npm start e será acessado no endereço url localhost:3000
