@@ -3,7 +3,7 @@ import { ITaskItem } from '../../../types';
 
 const INITIAL_STATE: ITaskItem[] = [];
 
-const tasks: Reducer<ITaskItem[]> = (state = INITIAL_STATE, action: any) => {
+const tasks: Reducer<ITaskItem[]> = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'ADD_TASK_TO_LIST': {
       const { task } = action.payload;

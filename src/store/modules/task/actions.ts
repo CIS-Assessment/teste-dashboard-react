@@ -1,6 +1,6 @@
-import { ITaskItem } from '../../../types';
+import { ActionTypes, TaskItem } from './types';
 
-export function addTaskToList(task: ITaskItem) {
+export function addTaskToList(task: TaskItem): ActionTypes {
   return {
     type: 'ADD_TASK_TO_LIST',
     payload: {
@@ -9,7 +9,7 @@ export function addTaskToList(task: ITaskItem) {
   };
 }
 
-export function editTaskToList(task: ITaskItem) {
+export function editTaskToList(task: TaskItem): ActionTypes {
   return {
     type: 'EDIT_TASK_FROM_LIST',
     payload: {
@@ -17,7 +17,7 @@ export function editTaskToList(task: ITaskItem) {
     },
   };
 }
-export function markAsChecked(task: ITaskItem) {
+export function markAsChecked(task: TaskItem): ActionTypes {
   return {
     type: 'MARK_TASK_AS_CHECKED',
     payload: {
