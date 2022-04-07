@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import React from 'react';
 import { notification } from 'antd';
 import { CheckCircleFilled } from '@ant-design/icons';

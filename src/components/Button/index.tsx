@@ -1,6 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable import/prefer-default-export */
 import { ReactNode } from 'react';
 import { ButtonProps, Grid } from 'antd';
 import { Button } from './styles';

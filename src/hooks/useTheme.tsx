@@ -1,12 +1,11 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable no-unused-vars */
-/* eslint-disable import/prefer-default-export */
 import {
   createContext,
   useState,
   useContext,
   ReactNode,
   useEffect,
+  useMemo,
+  useCallback,
 } from 'react';
 
 type Theme = 'light' | 'dark';
@@ -28,15 +27,25 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
     return (theme ?? 'light') as Theme;
   });
-  function toogleTheme() {
+
+  const toogleTheme = useCallback(() => {
     setCurrentTheme(currentTheme === 'light' ? 'dark' : 'light');
-  }
+  }, [currentTheme]);
 
   useEffect(() => {
     localStorage.setItem('theme', currentTheme);
   }, [currentTheme]);
+
+  const ThemeContextValues = useMemo(
+    () => ({
+      theme: currentTheme,
+      toogleTheme,
+    }),
+    [currentTheme, toogleTheme],
+  );
+
   return (
-    <ThemeContext.Provider value={{ theme: currentTheme, toogleTheme }}>
+    <ThemeContext.Provider value={ThemeContextValues}>
       {children}
     </ThemeContext.Provider>
   );

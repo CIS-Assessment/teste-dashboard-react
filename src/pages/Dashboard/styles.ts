@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import styled from 'styled-components';
 import { Table as TableAntd, Image, Tag, Switch } from 'antd';
 
@@ -6,7 +5,7 @@ interface DarkThemeProps {
   myTheme?: 'light' | 'dark';
 }
 interface ImageProps {
-  cursorOn?: boolean
+  cursorOn?: boolean;
 }
 
 export const Container = styled.div<DarkThemeProps>`
@@ -21,26 +20,24 @@ export const Container = styled.div<DarkThemeProps>`
 
 export const Header = styled.header<DarkThemeProps>`
   max-height: 70px;
-  background: ${props =>
-    props.myTheme === 'light' ? '#FFF' : '#3700b3'};
+  background: ${props => (props.myTheme === 'light' ? '#FFF' : '#3700b3')};
 
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
-  color: ${props =>
-    props.myTheme === 'light' ? 'dodgerblue' : '#FFF'};
+  color: ${props => (props.myTheme === 'light' ? 'dodgerblue' : '#FFF')};
   & > span {
     font-size: 1.6rem;
     font-weight: 700;
   }
 `;
 
-export const StyledImage = styled(Image) <ImageProps>`
+export const StyledImage = styled(Image)<ImageProps>`
   width: 28px;
   height: 28px;
   border-radius: 5px;
-  cursor: ${props => props.cursorOn && 'pointer'} ;
+  cursor: ${props => props.cursorOn && 'pointer'};
 `;
 
 export const Content = styled.main`
@@ -53,65 +50,54 @@ export const ContentHeader = styled.div<DarkThemeProps>`
   justify-content: space-between;
   align-items: center;
   margin: 1rem 0;
-  color: ${props =>
-    props.myTheme === 'light' ? 'black' : 'white'};
+  color: ${props => (props.myTheme === 'light' ? 'black' : 'white')};
 `;
 
 export const ContentTitle = styled.span`
   font-size: 1rem;
-  
+
   font-weight: 600;
 `;
 
-// eslint-disable-next-line prettier/prettier
-export const StyledTable = styled(TableAntd) <DarkThemeProps>`
-   &&& {
-    .ant-table
-     {
-      color: ${props =>
-    props.myTheme === 'light' ? 'black' : 'white'};
-      background:${props =>
-    props.myTheme === 'light' ? 'white' : 'black'};
-    
+export const StyledTable = styled(TableAntd)<DarkThemeProps>`
+  &&& {
+    .ant-table {
+      color: ${props => (props.myTheme === 'light' ? 'black' : 'white')};
+      background: ${props => (props.myTheme === 'light' ? 'white' : 'black')};
     }
     .ant-table-thead > tr > th {
-      background: ${props =>
-    props.myTheme === 'light' ? 'white' : '#bb86fc'};
-    color: ${props =>
-    props.myTheme === 'light' ? 'black' : 'white'};
+      background: ${props => (props.myTheme === 'light' ? 'white' : '#bb86fc')};
+      color: ${props => (props.myTheme === 'light' ? 'black' : 'white')};
     }
     .ant-table-tbody:hover .ant-table-cell {
-    background: transparent;
-  }
-  
-  .ant-table-empty .ant-table-tbody > tr.ant-table-placeholder {
-    color: ${props =>
-    props.myTheme === 'light' ? 'rgba(0, 0, 0, 0.25)' : 'white'};
+      background: transparent;
+    }
+
+    .ant-table-empty .ant-table-tbody > tr.ant-table-placeholder {
+      color: ${props =>
+        props.myTheme === 'light' ? 'rgba(0, 0, 0, 0.25)' : 'white'};
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-    .ant-table-thead > tr > th,
-    .ant-table-tbody > tr > td {
+      .ant-table-thead > tr > th,
+      .ant-table-tbody > tr > td {
         padding: 12px 8px;
       }
     }
   }
-   
 `;
 
-export const StyledSwitch = styled(Switch)`
-  
-`
+export const StyledSwitch = styled(Switch)``;
 
 export const StyledTag = styled(Tag)``;
 
 export const Footer = styled.footer<DarkThemeProps>`
   height: 70px;
-  background : ${props =>
+  background: ${props =>
     props.myTheme === 'light' ? 'dodgerblue' : '#03DAC6'};
   color: #fff;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
