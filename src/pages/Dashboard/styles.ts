@@ -77,7 +77,14 @@ export const StyledTable = styled(TableAntd)<DarkThemeProps>`
       color: ${props =>
         props.myTheme === 'light' ? 'rgba(0, 0, 0, 0.25)' : 'white'};
     }
+    .ant-pagination,
+    .ant-pagination-total-text {
+      color: ${props => (props.myTheme === 'light' ? 'default' : 'white')};
+    }
 
+    .ant-table-column-sort {
+      background: transparent;
+    }
     /* Responsive */
     @media (max-width: 768px) {
       .ant-table-thead > tr > th,

@@ -82,6 +82,9 @@ function Dashboard() {
       dataIndex: 'checked',
       defaultSortOrder: 'ascend' as SortType,
       sorter: (a: any, b: any) => a.checked - b.checked,
+      showSorterTooltip: {
+        title: 'Por ordem Crescente/Decrescente',
+      },
       align: 'center' as const,
       render: (status: boolean) =>
         status ? (
@@ -110,7 +113,7 @@ function Dashboard() {
     fontSize: '1.2rem',
   };
   const paginationConfig: PaginationConfig = {
-    defaultPageSize: 5,
+    defaultPageSize: 10,
     prevIcon: <LeftCircleOutlined style={styleConfig} />,
     nextIcon: <RightCircleOutlined style={styleConfig} />,
     position: ['bottomCenter'],
