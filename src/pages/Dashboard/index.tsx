@@ -88,9 +88,13 @@ function Dashboard() {
       align: 'center' as const,
       render: (status: boolean) =>
         status ? (
-          <StyledTag color="success">Sim</StyledTag>
+          <StyledTag color="success" myTheme={theme}>
+            Sim
+          </StyledTag>
         ) : (
-          <StyledTag color="error">Não</StyledTag>
+          <StyledTag color="error" myTheme={theme}>
+            Não
+          </StyledTag>
         ),
     },
     {
