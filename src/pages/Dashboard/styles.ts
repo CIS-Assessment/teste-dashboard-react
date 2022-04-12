@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Table as TableAntd, Image, Tag, Switch } from 'antd';
 
 interface DarkThemeProps {
@@ -77,7 +77,14 @@ export const StyledTable = styled(TableAntd)<DarkThemeProps>`
       color: ${props =>
         props.myTheme === 'light' ? 'rgba(0, 0, 0, 0.25)' : 'white'};
     }
+    .ant-pagination,
+    .ant-pagination-total-text {
+      color: ${props => (props.myTheme === 'light' ? 'default' : 'white')};
+    }
 
+    .ant-table-column-sort {
+      background: transparent;
+    }
     /* Responsive */
     @media (max-width: 768px) {
       .ant-table-thead > tr > th,
@@ -90,7 +97,20 @@ export const StyledTable = styled(TableAntd)<DarkThemeProps>`
 
 export const StyledSwitch = styled(Switch)``;
 
-export const StyledTag = styled(Tag)``;
+export const StyledTag = styled(Tag)<DarkThemeProps>`
+  ${props =>
+    props.color === 'success'
+      ? css`
+          color: ${props.myTheme === 'light' ? '#52c41a' : '#49aa19'};
+          background: ${props.myTheme === 'light' ? '#f6ffed' : '#162312'};
+          border-color: ${props.myTheme === 'light' ? '#b7eb8f' : '#274916'};
+        `
+      : css`
+          color: ${props.myTheme === 'light' ? '#ff4d4f' : '#a61d24'};
+          background: ${props.myTheme === 'light' ? '#fff2f0' : '#2a1215'};
+          border-color: ${props.myTheme === 'light' ? '#ffccc7' : '#58181c'};
+        `}
+`;
 
 export const Footer = styled.footer<DarkThemeProps>`
   height: 70px;

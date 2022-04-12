@@ -1,4 +1,5 @@
-import 'antd/dist/antd.css';
+/* import 'antd/dist/antd.css'; */
+import 'antd/dist/antd.less';
 import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`

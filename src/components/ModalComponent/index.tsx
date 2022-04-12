@@ -57,7 +57,7 @@ export function ModalComponent({
     if (mode === 'isEdit') {
       form.setFieldsValue(task);
     }
-  }, [task]);
+  }, [task, form, mode]);
   return (
     <Modal
       overlayClassName="react-modal-overlay"
