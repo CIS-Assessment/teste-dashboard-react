@@ -1,7 +1,3 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/button-has-type */
-/* eslint-disable import/prefer-default-export */
-
 import './css/modalProperties.css';
 import React from 'react';
 import Modal from 'react-modal';
@@ -61,7 +57,7 @@ export function ModalComponent({
     if (mode === 'isEdit') {
       form.setFieldsValue(task);
     }
-  }, [task]);
+  }, [task, form, mode]);
   return (
     <Modal
       overlayClassName="react-modal-overlay"
@@ -71,7 +67,11 @@ export function ModalComponent({
       onAfterClose={() => form.resetFields()}
       onRequestClose={onRequestClose}
     >
-      <button className="react-modal-close-button" onClick={onRequestClose}>
+      <button
+        type="button"
+        className="react-modal-close-button"
+        onClick={onRequestClose}
+      >
         <CloseSquareFilled />
       </button>
 

@@ -4,7 +4,7 @@ import {
   LeftCircleOutlined,
   RightCircleOutlined,
 } from '@ant-design/icons';
-import { TablePaginationConfig } from 'antd';
+
 import { useSelector } from 'react-redux';
 import dashboardIcon from '../../assets/icon-dashboard.jpg';
 import { ButtonComponent } from '../../components/Button';
@@ -23,7 +23,13 @@ import {
 } from './styles';
 import { ActionButtons } from '../../components/ActionButtons';
 import { useTheme } from '../../hooks/useTheme';
-import { IState, ITaskItem } from '../../types';
+import {
+  IState,
+  ITaskItem,
+  ResponsiveTypes,
+  SortType,
+  PaginationConfig,
+} from '../../types';
 
 function Dashboard() {
   const [taskData, setTaskData] = React.useState<ITaskItem>({} as ITaskItem);
@@ -56,32 +62,39 @@ function Dashboard() {
       title: 'Descrição',
       dataIndex: 'description',
       align: 'center' as const,
-      responsive: ['md'] as any,
+      responsive: ['md'] as ResponsiveTypes,
     },
     {
       title: 'Data de Criação',
       dataIndex: 'createDate',
       align: 'center' as const,
-      responsive: ['xl'] as any,
+      responsive: ['xl'] as ResponsiveTypes,
     },
     {
       title: 'Data de Alteração',
       dataIndex: 'changeDate',
       align: 'center' as const,
       render: (changedDate: string) => changedDate ?? '-',
-      responsive: ['xl'] as any,
+      responsive: ['xl'] as ResponsiveTypes,
     },
     {
       title: 'Concluída',
       dataIndex: 'checked',
-      defaultSortOrder: 'ascend' as any,
+      defaultSortOrder: 'ascend' as SortType,
       sorter: (a: any, b: any) => a.checked - b.checked,
+      showSorterTooltip: {
+        title: 'Por ordem Crescente/Decrescente',
+      },
       align: 'center' as const,
       render: (status: boolean) =>
         status ? (
-          <StyledTag color="success">Sim</StyledTag>
+          <StyledTag color="success" myTheme={theme}>
+            Sim
+          </StyledTag>
         ) : (
-          <StyledTag color="error">Não</StyledTag>
+          <StyledTag color="error" myTheme={theme}>
+            Não
+          </StyledTag>
         ),
     },
     {
@@ -103,8 +116,8 @@ function Dashboard() {
     color: theme === 'light' ? 'dodgerblue' : '#FFF',
     fontSize: '1.2rem',
   };
-  const paginationConfig: TablePaginationConfig = {
-    defaultPageSize: 5,
+  const paginationConfig: PaginationConfig = {
+    defaultPageSize: 10,
     prevIcon: <LeftCircleOutlined style={styleConfig} />,
     nextIcon: <RightCircleOutlined style={styleConfig} />,
     position: ['bottomCenter'],
