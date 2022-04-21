@@ -2,7 +2,6 @@
 
 ## Paulo Vitor
 
-Ao final, o DEV deverá enviar uma PR (`Pull Request`) para ser revisada.
 
 ### Tecnologias usadas
 *React
