@@ -15,8 +15,9 @@ Ao final, o DEV deverá enviar uma PR (`Pull Request`) para ser revisada.
 
 ---
 
-## Como usar no seu pc
-*```cmd git clone {este repositorio}```<br>
-*```cmd cd {nome do repositorio}``<br>
-*```cmd npm install ```<br>
-*```cmd npm start ```<br>
+##Como usar no seu pc
+* primeiro deve ter nodejs instalado na maquina.
+* ```cmd git clone {este repositorio} ```
+* ```cmd cd {nome do repositorio} ```
+* ```cmd npm install ```
+* ```cmd npm start ```
