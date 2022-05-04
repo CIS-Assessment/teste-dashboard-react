@@ -26,6 +26,7 @@ function App() {
     setList(newTaskList)
     localStorage.setItem('taskList', JSON.stringify(newTaskList))
   } 
+ 
   
   return (
     <C.Container>
