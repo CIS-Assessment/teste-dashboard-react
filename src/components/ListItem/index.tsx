@@ -33,13 +33,14 @@ export const ListItem = ({item, handleRemoveItem}: Props) => {
        localStorage.setItem('taskList', JSON.stringify(newTaskList  ))
     }  
 
+    
     return(
         <C.Container done={isChecked}>
             <input type="checkbox" 
                 checked={isChecked}
                 onChange = {e => setIsChecked(e.target.checked)}
             />
-            
+           
             {edit ? (
                 <form action="POST" onSubmit={(e) => handleItem(e) }>
                     <input id ="inp" type="text" ref={inputEdit} /></form>
